@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>CASA DI FERRO STORE</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+
+<video autoplay muted loop id="bgVideo">
+  <source src="vedios/MAFIA1.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+
+
+<header>
+  <img src="images/logo.png" class="logo">
+  <h1 class="shop-name">CASA DI FERRO STORE</h1>
+</header>
+
+
+<div class="intro-page" id="intro">
+  <h1>Welcome to CASA DI FERRO STORE</h1>
+  <p>Discover the best items for your crew</p>
+  <button id="startBtn">Start Shopping</button>
+</div>
+
+<nav class="categories" id="categories">
+  <div class="cat" onclick="filterItems('all')">All items</div>
+  <div class="cat" onclick="filterItems('weapon')">weapons</div>
+  <div class="cat" onclick="filterItems('heist')"> Hacker Gear </div>
+  <div class="cat" onclick="filterItems('gold')"> jewellery  </div>
+  <div class="cat" onclick="filterItems('drugs')"> DRUGS </div>
+</nav>
+
+
+
+<div class="shop-grid" id="shop"></div>
+
+<h2>🧾 invoice</h2>
+<table id="invoice">
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Amount</th>
+      <th>Price</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<h3 id="total">0 $</h3>
+<button id="pdfBtn">DOWNLOAD PDF</button>
+<div id="pdfForm" style="
+  display:none;
+  flex-direction:column;
+  gap:15px;
+  background: linear-gradient(145deg, #2a2a2a, #3b3b3b);
+  padding:30px;
+  border-radius:15px;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  z-index:1001;
+  box-shadow:0 0 30px rgba(201,162,77,0.8);
+  color:#eee;
+  min-width:320px;
+  font-family:'Segoe UI';
+">
+  <h2 style="text-align:center; color:#c9a24d; text-shadow:1px 1px 5px #000;">معلومات الفاتورة</h2>
+  
+  <label> buyerName:
+    <input type="text" id="buyerName" placeholder="buyerName" style="
+      width:100%; padding:8px; border-radius:8px; border:1px solid #c9a24d; background:#1b1b1b; color:#eee;
+    ">
+  </label>
+  
+  <label> GANG NAME :
+    <input type="text" id="gangName" placeholder=" Gang Name" style="
+      width:100%; padding:8px; border-radius:8px; border:1px solid #c9a24d; background:#1b1b1b; color:#eee;
+    ">
+  </label>
+  
+  <label>Radio:
+    <input type="text" id="radioName" placeholder="Radio" style="
+      width:100%; padding:8px; border-radius:8px; border:1px solid #c9a24d; background:#1b1b1b; color:#eee;
+    ">
+  </label>
+  
+  <div style="display:flex; gap:10px; justify-content:center; margin-top:10px;">
+    <button id="confirmPDF" style="
+      flex:1; padding:10px; border:none; border-radius:8px; background:#c9a24d; color:#111; font-weight:bold; cursor:pointer;
+      transition: all 0.3s ease;
+    ">Confirm</button>
+    
+    <button id="cancelPDF" style="
+      flex:1; padding:10px; border:none; border-radius:8px; background:#af2121; color:#fff; font-weight:bold; cursor:pointer;
+      transition: all 0.3s ease;
+    ">cancel</button>
+  </div>
+</div>
+
+<div id="pdfForm" class="pdf-form" style="display:none">
+  <div class="pdf-box">
+    <h2>Invoice Info</h2>
+
+    <input id="buyerName" type="text" placeholder="Buyer Name *">
+    <input id="gangName" type="text" placeholder="Gang Name *">
+    <input id="radioName" type="text" placeholder="Radio *">
+
+    <div class="pdf-actions">
+      <button id="confirmPDF">Confirm</button>
+      <button id="cancelPDF">Cancel</button>
+    </div>
+  </div>
+</div>
+
+
+    <div style="position:absolute; top:15px; right:20px; cursor:pointer; color:#c9a24d; font-size:20px;" onclick="document.getElementById('pdfForm').style.display='none';">✖</div>
+  </div>
+</div>
+
+
+<div id="musicPlayer" class="music-player hidden">
+  <button id="playPause">▶</button>
+   <input type="range" id="volume" min="0" max="1" step="0.01" value="0.3">
+  <button id="closePlayer">✖</button>
+</div>
+<audio id="bgMusic" src="music/mafia.mp3" loop></audio>
+
+<div id="visitorCounter" class="visitor-counter">
+  <span class="eye-icon">👁</span>
+  <span id="visitorCount">0</span>
+</div>
+
+<script src="script.js"></script>
+<div id="pdfForm" style="display:none">
+  <input id="buyerName" placeholder="Buyer Name *">
+  <input id="gangName" placeholder="Gang Name *">
+  <input id="radioName" placeholder="Radio *">
+
+  <button id="confirmPDF">Confirm</button>
+  <button id="cancelPDF">Cancel</button>
+</div>
+<div id="pdfForm" class="pdf-form">
+  <div class="pdf-box">
+    <h2>INVOICE INFO</h2>
+
+    <div class="input-group">
+      <input id="buyerName" type="text" placeholder="Buyer Name">
+      <span>*</span>
+    </div>
+
+    <div class="input-group">
+      <input id="gangName" type="text" placeholder="Gang Name">
+      <span>*</span>
+    </div>
+
+    <div class="input-group">
+      <input id="radioName" type="text" placeholder="Radio">
+      <span>*</span>
+    </div>
+
+    <div class="pdf-actions">
+      <button id="confirmPDF">Confirm</button>
+      <button id="cancelPDF">✖</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
