@@ -70,7 +70,7 @@ const items = [
    {name:"X Laptop",price:4600,img:"images/xlaptop.png",cat:"heist",status:"green"},
    {name:"Thermit",price:5750,img:"images/thermite.png",cat:"heist",status:"green"},
  
-  {name:"EXPLOSIVE",price:0,img:"images/c4.png",cat:"heist",status:"green"},
+  {name:"EXPLOSIVE",price:12000,img:"images/c4.png",cat:"heist",status:"green"},
 
 
  //guns
@@ -499,4 +499,5 @@ function addPackToInvoice(packNumber){
   btn.style.boxShadow = "0 0 25px #0ff, 0 0 15px #0ff inset";
   setTimeout(()=>{ btn.style.boxShadow = "0 0 15px #0ff"; }, 300);
 }
+
 
