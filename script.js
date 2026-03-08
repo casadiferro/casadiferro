@@ -55,7 +55,10 @@ const newLocal = 560000;
 // ===== ITEMS =====
 const items = [ 
 // heist
-
+ 
+   {name:"PACK PALITO ",price:51500,img:"images/pack_palito.png",cat:"heist",status:"green"},
+   {name:"PACK HUMANLAB",price:51500,img:"images/pack_humanlab.png",cat:"heist",status:"green"},
+   {name:"PACK  BIJOUX",price:51500,img:"images/pack_bijoux.png",cat:"heist",status:"green"},
    {name:"PACK FLEECA",price:51500,img:"images/pack_fleeca.png",cat:"heist",status:"green"},
    {name:"Bag",price:5750,img:"images/bag.png",cat:"heist",status:"green"},
    {name:"Electric Cutter",price:3450,img:"images/electric_cutter.png",cat:"heist",status:"green"},
@@ -70,7 +73,7 @@ const items = [
    {name:"X Laptop",price:4600,img:"images/xlaptop.png",cat:"heist",status:"green"},
    {name:"Thermit",price:5750,img:"images/thermite.png",cat:"heist",status:"green"},
  
-  {name:"EXPLOSIVE",price:12000,img:"images/c4.png",cat:"heist",status:"green"},
+  {name:"EXPLOSIVE",price:13000,img:"images/c4.png",cat:"heist",status:"green"},
 
 
  //guns
@@ -499,5 +502,6 @@ function addPackToInvoice(packNumber){
   btn.style.boxShadow = "0 0 25px #0ff, 0 0 15px #0ff inset";
   setTimeout(()=>{ btn.style.boxShadow = "0 0 15px #0ff"; }, 300);
 }
+
 
 
