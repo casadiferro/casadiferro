@@ -56,9 +56,9 @@ const newLocal = 560000;
 const items = [ 
 // heist
  
-   {name:"PACK PALITO ",price:51500,img:"images/pack_palito.png",cat:"heist",status:"green"},
-   {name:"PACK HUMANLAB",price:51500,img:"images/pack_humanlab.png",cat:"heist",status:"green"},
-   {name:"PACK  BIJOUX",price:51500,img:"images/pack_bijoux.png",cat:"heist",status:"green"},
+   {name:"PACK PALITO ",price:75750,img:"images/pack_palito.png",cat:"heist",status:"green"},
+   {name:"PACK HUMANLAB",price:165000,img:"images/pack_humanlab.png",cat:"heist",status:"green"},
+   {name:"PACK  BIJOUX",price:37375,img:"images/pack_bijoux.png",cat:"heist",status:"green"},
    {name:"PACK FLEECA",price:51500,img:"images/pack_fleeca.png",cat:"heist",status:"green"},
    {name:"Bag",price:5750,img:"images/bag.png",cat:"heist",status:"green"},
    {name:"Electric Cutter",price:3450,img:"images/electric_cutter.png",cat:"heist",status:"green"},
@@ -502,6 +502,7 @@ function addPackToInvoice(packNumber){
   btn.style.boxShadow = "0 0 25px #0ff, 0 0 15px #0ff inset";
   setTimeout(()=>{ btn.style.boxShadow = "0 0 15px #0ff"; }, 300);
 }
+
 
 
 
